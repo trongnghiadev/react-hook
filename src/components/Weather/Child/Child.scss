@@ -1,0 +1,20 @@
+.weathersate-conainer {
+    display: flex;
+    align-items:flex-end;
+
+    .icon-state {
+        width: 80px;
+        height: 80px;
+
+    }
+
+    .name-state {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 15px;
+       
+    }
+}
+.weathereveryday {
+    padding: 15px;
+}

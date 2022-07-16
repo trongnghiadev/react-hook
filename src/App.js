@@ -7,10 +7,6 @@ import 'react-image-lightbox/style.css';
 import Nav from './components/Navigation/Nav';
 import OTP from './components/OTP/OTP';
 import {
-  useParams
-} from "react-router-dom";
-
-import {
   BrowserRouter as Router,
   Switch,
   Route,

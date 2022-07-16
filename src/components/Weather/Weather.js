@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import './Weather.scss'
+import Weatherlocation from "./Weatherlocation";
 
 const Weather = () => {
     const [title, setTitle] = useState("");
@@ -17,6 +18,14 @@ const Weather = () => {
     return (
         <div className="weather-app-container">
             <Search />
+            <hr />
+            <Weatherlocation
+                woeidformFR={"1252431"}
+            />
+            <hr />
+            <Weatherlocation
+                woeidformFR={"1236594"}
+            />
         </div>)
 }
 
