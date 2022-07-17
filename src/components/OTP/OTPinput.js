@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { forwardRef, useState, useRef, useImperativeHandle } from 'react';
 import OtpInput from 'react-otp-input';
 import CountDown from './CountDown';
+import CountDowna from './CountDowna';
 import OTP from './OTP';
 const OTPinput = (props) => {
+    const childRef = useRef();
     const [otp, setOtp] = useState("");
+    const handleClearBtn = () => {
+        childRef.current.restTimer();
+        console.log("check ref ", childRef)
+    }
     const handleConfirmOTP = () => {
         props.handleSumitOTP();
     }
@@ -21,12 +27,19 @@ const OTPinput = (props) => {
             inputStyle={'custom-input'}
         />
         <div className='Timer'>
-            <CountDown
+            {/* <CountDown
+                
+            /> */}
+            <CountDowna
                 setisDisableBtn={props.setisDisableBtn}
+                ref={childRef}
             />
         </div>
         <div className='action'>
-            <button className='clear'>Clear</button>
+            <button className='clear'
+                onClick={() => handleClearBtn()}
+                disabled={!props.isDisableBtn}
+            >Clear</button>
             <button className='confirm'
                 disabled={props.isDisableBtn}
                 onClick={() => handleConfirmOTP()}>Confim</button>
@@ -34,4 +47,4 @@ const OTPinput = (props) => {
     </div>)
 }
 
-export default OTPinput;
+export default OTPinput;    
