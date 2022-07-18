@@ -5,15 +5,13 @@ import './Weather.scss'
 import Weatherlocation from "./Weatherlocation";
 
 const Weather = () => {
-    const [title, setTitle] = useState("");
-
     useEffect(async () => {
         let response = await axios({
             method: 'POST',
             url: "http://localhost:8080/get-data-by-url",
             data: { url: 'https://www.metaweather.com/api/location/1236594/' }
         });
-        setTitle(response.data.title)
+
     }, []);
     return (
         <div className="weather-app-container">
